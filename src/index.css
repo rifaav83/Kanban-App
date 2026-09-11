@@ -1,0 +1,621 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            120deg,
+            #101b38,
+            #07111d,
+            #06202d
+        );
+
+    color: white;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 35px 45px;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.app h1 {
+    margin: 0 0 30px;
+
+    text-align: center;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    color: #19c9ed;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.kanban-container {
+    width: 100%;
+
+    min-height: calc(100vh - 140px);
+
+    padding: 28px;
+
+    background: rgba(10, 24, 42, 0.85);
+
+    border: 1px solid #263b52;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.task-form {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 35px;
+}
+
+.task-form input {
+    width: 320px;
+
+    height: 42px;
+
+    padding: 0 14px;
+
+    background: #17253a;
+
+    color: white;
+
+    border: 1px solid #34475d;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+.task-form input:focus {
+    border-color: #19c9ed;
+}
+
+.task-form input::placeholder {
+    color: #94a3b8;
+}
+
+
+.task-form select {
+    height: 42px;
+
+    padding: 0 12px;
+
+    background: #17253a;
+
+    color: white;
+
+    border: 1px solid #34475d;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.task-form button {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #00a99d;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.task-form button:hover {
+    background: #00b9ab;
+}
+
+
+/* =========================
+   BOARD
+========================= */
+
+.kanban-board {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    min-height: calc(100vh - 250px);
+}
+
+
+/* =========================
+   COLUMN
+========================= */
+
+.column {
+    min-height: calc(100vh - 250px);
+
+    padding: 18px;
+
+    background: #17283d;
+
+    border: 1px solid #314860;
+
+    border-radius: 7px;
+
+    transition: background 0.15s;
+}
+
+.column:hover {
+    background: #192c43;
+}
+
+
+/* =========================
+   COLUMN HEADER
+========================= */
+
+.column-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.column-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.column-title h2 {
+    margin: 0;
+
+    font-size: 19px;
+
+    color: #f1f5f9;
+}
+
+
+/* =========================
+   COLUMN ICON
+========================= */
+
+.column-icon {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 6px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 16px;
+}
+
+.column-icon.todo {
+    background: #087ff5;
+}
+
+.column-icon.inprogress {
+    background: #f28b00;
+}
+
+.column-icon.done {
+    background: #00a99d;
+}
+
+
+/* =========================
+   COUNT
+========================= */
+
+.task-count {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #33445a;
+
+    color: #e2e8f0;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+.task-list {
+    min-height: 150px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   TASK CARD
+========================= */
+
+.task-card {
+    width: 100%;
+
+    min-height: 54px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 9px 10px;
+
+    margin-bottom: 10px;
+
+    background: #1d3047;
+
+    border: 1px solid #354c64;
+
+    border-radius: 6px;
+
+    cursor: grab;
+
+    user-select: none;
+}
+
+.task-card:hover {
+    background: #243950;
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+
+/* =========================
+   DRAG HANDLE
+========================= */
+
+.drag-handle {
+    width: 22px;
+
+    margin-right: 8px;
+
+    color: #8da0b5;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: grab;
+}
+
+
+
+/* =========================
+   TASK CONTENT
+========================= */
+
+.task-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.task-content span {
+    display: block;
+
+    color: #e6edf5;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.task-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-left: 10px;
+}
+
+
+/* =========================
+   ACTION BUTTON
+========================= */
+
+.task-actions button {
+    height: 32px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #33465c;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+.edit-btn {
+    padding: 0 12px;
+
+    font-size: 13px;
+
+    color: #60a5fa;
+
+    background: rgba(96, 165, 250, 0.15);
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.edit-btn:hover {
+    background: rgba(96, 165, 250, 0.35);
+
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.delete-btn {
+    padding: 0 12px;
+
+    font-size: 13px;
+
+    color: #ff4444;
+
+    background: rgba(255, 68, 68, 0.15);
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 68, 68, 0.35);
+
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   EDIT AREA
+========================= */
+
+.edit-area {
+    width: 100%;
+}
+
+.edit-area input {
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 10px;
+
+    margin-bottom: 8px;
+
+    background: #111d2d;
+
+    color: white;
+
+    border: 1px solid #3b5169;
+
+    border-radius: 5px;
+
+    outline: none;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   EDIT BUTTONS
+========================= */
+
+.edit-buttons {
+    display: flex;
+
+    gap: 8px;
+}
+
+.save-btn,
+.cancel-btn {
+    padding: 7px 13px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.save-btn {
+    background: #00a99d;
+
+    color: white;
+}
+
+.cancel-btn {
+    background: #3a4a5d;
+
+    color: white;
+}
+
+
+/* =========================
+   EMPTY COLUMN
+========================= */
+
+.empty-column {
+    height: 100px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: 1px dashed #4a6077;
+
+    border-radius: 6px;
+
+    color: #8292a5;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .app {
+        padding: 25px;
+    }
+
+    .kanban-board {
+        gap: 12px;
+    }
+
+    .column {
+        padding: 14px;
+    }
+
+    .task-content span {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .app {
+        padding: 15px;
+    }
+
+    .app h1 {
+        font-size: 34px;
+    }
+
+    .kanban-container {
+        padding: 18px;
+    }
+
+    .task-form {
+        flex-wrap: wrap;
+    }
+
+    .task-form input {
+        width: 100%;
+    }
+
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .column {
+        min-height: 350px;
+    }
+}
