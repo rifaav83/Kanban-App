@@ -95,7 +95,6 @@ function TaskCard({ task }) {
                     </div>
 
                     <div className="task-actions">
-
                         
                         <button
                             className="edit-btn"
@@ -106,10 +105,7 @@ function TaskCard({ task }) {
                             title="Edit task"
                         >
                             Edit
-                        </button>
-
-
-                    
+                        </button>   
                         <button
                             className="delete-btn"
                             onClick={(e) => {
@@ -123,11 +119,9 @@ function TaskCard({ task }) {
 
                     </div>
                 </>
-
-            )}
-
+              )}
+            
         </div>
     );
 }
-
-export default TaskCard;
+export default TaskCard;   
