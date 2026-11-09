@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { TaskContext } from "../context/TaskContext";
 
-function TaskCard({ task }) {
+function TaskCard({ task })  {
 
     const { deleteTask, updateTask } = useContext(TaskContext);
 
@@ -124,4 +124,5 @@ function TaskCard({ task }) {
         </div>
     );
 }
-export default TaskCard;   
+export default  TaskCard;   
+
